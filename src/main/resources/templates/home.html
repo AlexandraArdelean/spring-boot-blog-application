@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Travel Blog :: Home</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<header class="flex">
+    <div class="container">
+        <div class="header-title">
+            <h1 class="first-title">Leave Your Footprints</h1>
+            <p>The best things in life are the people we love, the places we've been and the memories we've made along
+                the way.</p>
+        </div>
+    </div>
+</header>
+<!-- header -->
+<div class="container">
+    <h1>Travel<span>Blog</span></h1>
+    <hr/>
+    <ul>
+        <li>
+            <a th:href="@{/posts/new}">New Post</a>
+        </li>
+    </ul>
+    <div class="posts-container">
+        <div class="post" th:each="post : ${posts}">
+            <h2><a th:href="@{'/posts/' + ${post.id}}"
+                   th:text="${post.title}">Title</a>
+            </h2>
+            <!--            <h5 th:text="'Published on '  + ${post.createdAt}">Created at</h5>-->
+            <p th:text="${post.body}">body text</p>
+            <br/>
+        </div>
+    </div>
+</div>
+<!-- video section -->
+<section id="video">
+    <div class="video-wrapper flex">
+        <iframe width="800" height="500" src="https://www.youtube.com/embed/wqIzNDSutSI" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
+</section>
+<br/>
+<br/>
+<!-- end of video section -->
+<!-- footer -->
+<footer class="py-4">
+    <div class="container footer-row">
+        <div class="footer-item">
+            <a href="index.html" class="site-brand">
+                Travel<span>Blog</span>
+            </a>
+            <p class="text">The journey of a thousand miles begins with a single step.</p>
+        </div>
+
+        <div class="footer-item">
+            <h2>Popular places to visit:</h2>
+            <ul>
+                <li><a href="#">Thailand</a></li>
+                <li><a href="#">Australia</a></li>
+                <li><a href="#">Maldives</a></li>
+                <li><a href="#">Philippines</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!-- end of footer -->
+</body>
+</html>
