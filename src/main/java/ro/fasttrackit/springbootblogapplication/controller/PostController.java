@@ -74,10 +74,10 @@ public class PostController {
     }
 
     @GetMapping("/posts/{id}/delete")
-    public String deletePost(@PathVariable Long id){
+    public String deletePost(@PathVariable Long id) {
         // find post by id
         Optional<Post> optionalPost = postService.getById(id);
-        if (optionalPost.isPresent()){
+        if (optionalPost.isPresent()) {
             Post post = optionalPost.get();
             postService.deletePost(post);
             return "redirect:/";

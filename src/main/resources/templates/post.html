@@ -8,17 +8,42 @@
     <title>Travel Blog :: Post</title>
 </head>
 <body>
-<div class="container">
-    <a th:href="@{/}">Home</a>
-    <div class="post">
-        <h2 th:text="${post.title}">Title</h2>
-        <p th:text="${post.body}">body text</p>
-    </div>
-    <ul>
-        <li><a th:href="@{'/posts/' + ${post.id} + '/edit'}">Edit</a></li>
-        <li><a th:href="@{'/posts/' + ${post.id} + '/delete'}">Delete</a></li>
-    </ul>
-</div>
+<style>
+    body {
+    background-image: url('/images/background11.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    }
 
+
+
+</style>
+<div class="container">
+    <h2>
+        <a th:href="@{/}">Home</a>
+    </h2>
+    <h4>
+        <ul>
+            <li><a th:href="@{'/posts/' + ${post.id} + '/edit'}">Edit Post</a></li>
+            <li><a th:href="@{'/posts/' + ${post.id} + '/delete'}">Delete Post</a></li>
+        </ul>
+    </h4>
+    <div class="post">
+        <h1 th:text="${post.title}">Title</h1>
+        <h2 th:text="${post.body}">body text</h2>
+        <div th:each="i : ${post.images}">
+            <img th:src="${i.url}" src="" width="500" height="600">
+        </div>
+        <br/>
+        <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/3SsK-cxlj_w"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
 </body>
 </html>

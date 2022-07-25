@@ -9,10 +9,10 @@ import ro.fasttrackit.springbootblogapplication.service.PostService;
 import java.util.List;
 
 @Component
-public class SeedData implements CommandLineRunner {
+public class SendData implements CommandLineRunner {
     private final PostService postService;
 
-    public SeedData(PostService postService) {
+    public SendData(PostService postService) {
         this.postService = postService;
     }
 
@@ -31,7 +31,7 @@ public class SeedData implements CommandLineRunner {
 
             Post post2 = new Post();
             post2.setTitle("Bali, Indonesia");
-            post2.setBody("Also known as the Land of the Gods, Bali appeals through its sheer natural beauty " +
+            post2.setBody("Also known as the Land of the Gods. Bali appeals through its sheer natural beauty " +
                     "of looming volcanoes and lush terraced rice fields that exude peace and serenity.");
             post2.setImages(postImage2());
 
@@ -39,7 +39,7 @@ public class SeedData implements CommandLineRunner {
             Post post3 = new Post();
             post3.setTitle("Croatia, Europe");
             post3.setBody("Croatia's extraordinary island-speckled coastline is indisputably its main attraction." +
-                    "The first thing that strikes you is the remarkable clarity of the water. " +
+                    "The first thing that strikes you is the remarkable clarity of the water." +
                     "When it's set against a dazzling white pebbly beach, the water sparkles with" +
                     " a jewel-like intensity in shades of emerald and sapphire.");
 
@@ -54,7 +54,6 @@ public class SeedData implements CommandLineRunner {
             post4.setImages(postImage4());
 
 
-
             Post post5 = new Post();
             post5.setTitle("Santorini, Greece");
             post5.setBody("Even if you’ve never been to this Cyclades island in the Aegean Sea, you’d still recognize " +
@@ -62,7 +61,6 @@ public class SeedData implements CommandLineRunner {
                     "buildings topped with cobalt-blue domes. " +
                     "Roam the peaceful black-sand beaches or wander the streets of a provincial village");
             post5.setImages(postImage5());
-
 
 
             postService.save(post1);
@@ -74,27 +72,27 @@ public class SeedData implements CommandLineRunner {
     }
 
     private List<Image> postImage5() {
-        return List.of(new Image("/images/santorini2.jpeg"));
+        return List.of(new Image("santorini2.jpg"));
     }
 
 
     private List<Image> postImage4() {
-        return List.of(new Image("/images/philippines2.jpg"));
+        return List.of(new Image("philippines2.jpg"));
     }
 
 
     private List<Image> postImage3() {
-        return List.of(new Image("images/croatia2.jpg"));
+        return List.of(new Image("croatia2.jpg"));
     }
 
 
     private List<Image> postImage2() {
-        return List.of(new Image("images/bali1.jpg"));
+        return List.of(new Image("bali1.jpg"));
     }
 
 
     private List<Image> postImage1() {
-        return List.of(new Image("/images/algarve/algarve2.jpg"));
+        return List.of(new Image("algarve2.jpg"));
     }
 
 }

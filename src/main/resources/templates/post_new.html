@@ -13,15 +13,26 @@
     <form action="#"
           th:action="@{'/posts/new'}"
           th:object="${post}"
-          method="POST">
+          method="POST"
+          enctype="multipart/form-data">
         <h2>Write a new post</h2>
         <div>
-           <label for="new-post-title">Title</label>
+            <label for="new-post-title">Title </label>
             <input id="new-post-title" type="text" th:field="*{title}" placeholder="Title">
         </div>
         <div>
-            <label for="new-post-body">Body</label>
-            <textarea id="new-post-body" type="text" th:field="*{body}"></textarea>
+            <label for="new-post-body">Content</label>
+            <textarea id="new-post-body" type="text" th:field="*{body}"></textarea><br/>
+        </div>
+        <div>
+            <label for="file" class="custom-uploader">Upload photo</label>
+            <input id="file" type="file" name="fileToUpload"
+                   accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps">
+            <button type="submit" name="submit" class="btn btn-success">
+
+                Upload File
+
+            </button>
         </div>
         <button type="submit">Publish Post</button>
 

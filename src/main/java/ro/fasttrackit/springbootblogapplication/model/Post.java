@@ -12,13 +12,13 @@ import java.util.List;
 @Setter
 public class Post {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     @Column(columnDefinition = "TEXT")
     private String body;
     private LocalDateTime createdAt;
-    private String imageUrl;
+//    private String imageUrl;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Image> images;
 
